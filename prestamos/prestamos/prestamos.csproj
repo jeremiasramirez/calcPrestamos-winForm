@@ -52,10 +52,19 @@
     <Compile Include="calculadoraPrestamo.Designer.cs">
       <DependentUpon>calculadoraPrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FakeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FakeFrm.Designer.cs">
+      <DependentUpon>FakeFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="calculadoraPrestamo.resx">
       <DependentUpon>calculadoraPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FakeFrm.resx">
+      <DependentUpon>FakeFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

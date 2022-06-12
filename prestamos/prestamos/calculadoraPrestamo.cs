@@ -38,7 +38,7 @@ namespace prestamos
         {
             
             this.calcularPrestamos();
-            nodatapanel.Visible = false;
+            //nodatapanel.Visible = false;
         }
 
 
@@ -70,24 +70,37 @@ namespace prestamos
                 monto = double.Parse(montoPrestamo.Text);
                 tasaIntere = double.Parse(tasaInteres.Text);
                 noCuotas = (int)numeroCuotas.Value;
-
+                
                 double capitalCuota_ = monto / noCuotas;
-
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Cuotas");
+                dt.Columns.Add("Capital de cuotas");
+                dt.Columns.Add("Interes de cuotas");
+                dt.Columns.Add("Monto de cuotas");
+                dt.Columns.Add("Capital pagado");
+                dt.Columns.Add("Capital restante");
                 double interesCuota_ = (monto * (tasaIntere /12/100));
                 double montoCuota_ = capitalCuota_ + interesCuota_;
                 double capitalPagado_ = 0;
                 double capitalRestante_= 0;
+
                 for(int cuota=1; cuota<=noCuotas; cuota++)
                 {
+                    DataRow dr =  dt.NewRow();
                     capitalPagado_ += capitalCuota_;
                     capitalRestante_ = monto - capitalPagado_;
-                    lstNumeroCuotas.Items.Add(cuota);
-                    lstCapitalCuotas.Items.Add(capitalCuota_.ToString("c"));
-                    lstInteresCuota.Items.Add(interesCuota_.ToString("###,###,##0.00"));
-                    lstMontoCuotas.Items.Add(montoCuota_.ToString("c"));
-                    lstCapitalPagado.Items.Add(capitalPagado_.ToString("c"));
-                    lstCapitalRestante.Items.Add(capitalRestante_.ToString("c"));
+                    dr["Cuotas"] =cuota;
+                    dr["Capital de cuotas"] =capitalCuota_.ToString("c");
+                    dr["Interes de cuotas"] =interesCuota_.ToString("###,###,##0.00");
+                    dr["Monto de cuotas"] =montoCuota_.ToString("c");
+                    dr["Capital pagado"] =capitalPagado_.ToString("c");
+                    dr["Capital restante"] =capitalRestante_.ToString("c");
+                    dt.Rows.Add(dr);
                 }
+                datagrid.DataSource = dt;
+                datagrid.Refresh();
+
+
 
             }
          
@@ -123,7 +136,7 @@ namespace prestamos
         {
 
             this.limpiarDatos();
-            nodatapanel.Visible = true;
+            //nodatapanel.Visible = true;
         }
 
         private void lstNumeroCuotas_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,7 +146,7 @@ namespace prestamos
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            startPage.Visible = false;
+            //startPage.Visible = false;
         }
     }
 }

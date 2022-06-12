@@ -9,3 +9,4 @@ C:\Users\Cristian\Desktop\prestamos\prestamos\obj\Debug\prestamos.csproj.Generat
 C:\Users\Cristian\Desktop\prestamos\prestamos\obj\Debug\prestamos.csproj.CoreCompileInputs.cache
 C:\Users\Cristian\Desktop\prestamos\prestamos\obj\Debug\prestamos.exe
 C:\Users\Cristian\Desktop\prestamos\prestamos\obj\Debug\prestamos.pdb
+C:\Users\Cristian\Desktop\prestamos\prestamos\obj\Debug\prestamos.FakeFrm.resources
